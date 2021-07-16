@@ -13,6 +13,11 @@ $ npm run test
 #### Example
 
 ```shell
-$ poetry run python main.py
+(async () => {
+  let jira = new Jira({ jiraServer: server });
+  await jira.connect({ username: account, password: password });
+  let issue = await jira.getIssues(`key=MyTicket-1234`);
+  console.dir(issue);
+})();
  ```
 
